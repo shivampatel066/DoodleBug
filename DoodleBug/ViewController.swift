@@ -11,11 +11,21 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
     
     var swiped = false
     var lastPoint = CGPoint.zero
     
+    var red: CGFloat = 0.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    
+    var brushWidth: CGFloat = 40.0
+    
+    
+   
     
     
     
@@ -23,6 +33,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.brushSize()
+        
     }
 
 
@@ -67,6 +80,29 @@ class ViewController: UIViewController {
     
     func drawLine(_ fromPoint: CGPoint, toPoint: CGPoint) {
         
+        UIGraphicsBeginImageContext(view.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        imageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        
+        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        context?.addLine(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        
+        context?.setLineCap(CGLineCap.round)
+        context?.setLineWidth(brushWidth)
+        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: 1)
+        context?.setBlendMode(CGBlendMode.normal)
+        
+        context?.strokePath()
+        
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        
+        
+        
+        
         
         
         
@@ -76,6 +112,115 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func red(_ sender: Any) {
+        
+        (red, green, blue) = (255, 0, 0)
+        
+    }
+    
+    @IBAction func green(_ sender: Any) {
+       
+        (red, green, blue) = (0, 255, 0)
+    
+    }
+    
+    
+    @IBAction func blue(_ sender: Any) {
+    
+        (red, green, blue) = (0, 0, 255)
+    
+    }
+    
+    @IBAction func black(_ sender: Any) {
+        
+        (red, green, blue) = (0, 0, 0)
+        
+    }
+    
+    @IBAction func white(_ sender: Any) {
+        
+        (red, green, blue) = (255, 255, 255)
+        
+    }
+    
+    
+    @IBAction func smallBrush(_ sender: Any) {
+    
+        brushWidth -= 1
+        self.brushSize()
+    
+    }
+    
+    @IBAction func largeBrush(_ sender: Any) {
+    
+        brushWidth += 1
+        self.brushSize()
+        
+    
+    }
+    
+    func brushSize() {
+        
+        label.text = String(format: "%0.0f",brushWidth)
+        
+        if brushWidth == 100 {
+            
+            plusButton.isEnabled = false
+            plusButton.alpha = 0.25
+            
+        } else if brushWidth == 1 {
+            
+            minusButton.isEnabled = false
+            minusButton.alpha = 0.25
+            
+        } else {
+            
+            plusButton.isEnabled = true
+            plusButton.alpha = 1
+            minusButton.isEnabled = true
+            minusButton.alpha = 1
+            
+        }
+        
+    }
+    
+    @IBAction func resetButton(_ sender: Any) {
+        
+        imageView.image = nil
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let settingsVC = segue.destination as! SettingsViewController
+        settingsVC.delegate = self
+        settingsVC.brushWidth = brushWidth
+        settingsVC.red = red
+        settingsVC.green = green
+        settingsVC.blue = blue
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+}
+
+
+extension ViewController: SettingsViewControllerDelegate {
+    
+    func settingsViewControllerFinished(_ settingsViewController: SettingsViewController) {
+        
+        self.brushWidth = settingsViewController.brushWidth
+        self.red = settingsViewController.red
+        self.green = settingsViewController.green
+        self.blue = settingsViewController.blue
+        
+        self.brushSize()
+    }
     
 }
 
