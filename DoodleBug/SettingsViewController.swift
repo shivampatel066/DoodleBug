@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var blueLabel: UILabel!
     
     var brushWidth: CGFloat = 40.0
+    var opacity: CGFloat = 1.0
     
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
@@ -57,6 +58,9 @@ class SettingsViewController: UIViewController {
         redLabel.text = String(format: "%.0f", redSlider.value)
         greenLabel.text = String(format: "%.0f", greenSlider.value)
         blueLabel.text = String(format: "%.0f", blueSlider.value)
+        opacityLabel.text = String(format: "Opacity : %.1f", opacity)
+        opacitySlider.value = Float(opacity)
+        
         
         
         
@@ -81,6 +85,9 @@ class SettingsViewController: UIViewController {
     }
     @IBAction func opacityChange(_ sender: Any) {
         
+        opacity = CGFloat(opacitySlider.value)
+        opacityLabel.text = String(format: "Opacity: %.1f", opacity)
+        self.updatePreview()
         
         
     }
@@ -114,7 +121,7 @@ class SettingsViewController: UIViewController {
         
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(brushWidth)
-        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: 1)
+        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: opacity)
         context?.setBlendMode(CGBlendMode.normal)
         context?.move(to: CGPoint(x: imageView.frame.width / 2, y: imageView.frame.height / 2))
         context?.addLine(to: CGPoint(x: imageView.frame.width / 2, y: imageView.frame.height / 2))

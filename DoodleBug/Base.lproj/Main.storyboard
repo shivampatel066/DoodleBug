@@ -21,6 +21,23 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vrx-1o-Xev">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IAI-Of-i1B" userLabel="SecondImage">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ht-SP-Edr">
+                                <rect key="frame" x="10" y="30" width="355" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Paz-U6-AM7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="Reveal">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="reveal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vJ4-P1-9D8"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IJf-T4-Ryh">
                                 <rect key="frame" x="10" y="607" width="355" height="40"/>
                                 <subviews>
@@ -96,10 +113,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qYB-ZH-QB7">
                                 <rect key="frame" x="10" y="30" width="355" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Maz-3k-K0k">
-                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s99-Un-eQC">
+                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Hide">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AnZ-ls-3kq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Maz-3k-K0k">
+                                        <rect key="frame" x="91.5" y="0.0" width="81" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
                                         <state key="normal" title="Reset">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -108,14 +136,25 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISN-Ys-DLD">
-                                        <rect key="frame" x="182.5" y="0.0" width="172.5" height="40"/>
+                                        <rect key="frame" x="182.5" y="0.0" width="81.5" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
                                         <state key="normal" title="Settings">
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="ijK-Vj-rGc" kind="presentation" modalTransitionStyle="crossDissolve" id="BPT-ZK-4HE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJP-A5-wy8">
+                                        <rect key="frame" x="274" y="0.0" width="81" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vw0-Oh-wMo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -126,16 +165,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1ht-SP-Edr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="0q0-5K-l5D"/>
                             <constraint firstAttribute="bottom" secondItem="vrx-1o-Xev" secondAttribute="bottom" id="8RD-GP-6PV"/>
+                            <constraint firstAttribute="bottom" secondItem="IAI-Of-i1B" secondAttribute="bottom" id="Fxa-RU-KGi"/>
                             <constraint firstItem="vrx-1o-Xev" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OKE-ug-4ES"/>
                             <constraint firstItem="vrx-1o-Xev" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Z3k-bA-QYz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IJf-T4-Ryh" secondAttribute="bottom" constant="20" id="Z59-6A-I6h"/>
+                            <constraint firstItem="IAI-Of-i1B" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cU6-1w-gSw"/>
+                            <constraint firstItem="1ht-SP-Edr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="dlW-uu-TA8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1ht-SP-Edr" secondAttribute="trailing" constant="10" id="efQ-s9-zxh"/>
                             <constraint firstItem="vrx-1o-Xev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fs7-vF-Agx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qYB-ZH-QB7" secondAttribute="trailing" constant="10" id="lPg-qN-Vk4"/>
+                            <constraint firstItem="IAI-Of-i1B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lrx-ig-v36"/>
                             <constraint firstItem="IJf-T4-Ryh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mKE-bI-Cg0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IJf-T4-Ryh" secondAttribute="trailing" constant="10" id="mxh-H5-Q7B"/>
                             <constraint firstItem="qYB-ZH-QB7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nX6-n7-ojp"/>
                             <constraint firstItem="qYB-ZH-QB7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="rK5-cQ-skH"/>
+                            <constraint firstItem="IAI-Of-i1B" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="z1c-fM-Vu5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -144,6 +190,10 @@
                         <outlet property="label" destination="ENE-ym-2R1" id="jnM-ap-7zJ"/>
                         <outlet property="minusButton" destination="Omc-J6-vPa" id="Kx4-qJ-A3O"/>
                         <outlet property="plusButton" destination="xF5-J1-eXh" id="Kdp-7T-kK3"/>
+                        <outlet property="revealButton" destination="1ht-SP-Edr" id="oDw-oZ-KAK"/>
+                        <outlet property="secondImage" destination="IAI-Of-i1B" id="54v-5N-vbS"/>
+                        <outlet property="stack1" destination="IJf-T4-Ryh" id="DXA-mp-lnP"/>
+                        <outlet property="stack2" destination="qYB-ZH-QB7" id="jFl-N6-gTR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
